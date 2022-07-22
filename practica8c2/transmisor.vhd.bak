@@ -1,0 +1,109 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity transmisor is 
+  port( Clk       : IN STD_LOGIC;
+		  INICIO    : IN STD_LOGIC;
+		  dato      : IN STD_LOGIC_VECTOR(7 downto 0);
+        baud      : IN STD_LOGIC_VECTOR(2 downto 0);
+        bandera   : OUT STD_LOGIC;
+        TX_WIRE   : OUT STD_LOGIC);
+end entity;
+
+architecture behavioral OF transmisor IS
+  signal conta      : INTEGER := 0;
+  signal valor      : INTEGER := 70000;
+  --signal INICIO     : STD_LOGIC;
+  signal dato_env   : STD_LOGIC_VECTOR(7 downto 0);
+  signal PRE        : INTEGER RANGE 0 TO 5208 := 0;
+  signal INDICE     : INTEGER RANGE 0 TO 9 := 0;
+  signal BUFF       : STD_LOGIC_VECTOR (9 downto 0);
+  signal FLAG       : STD_LOGIC := '0';
+  signal PRE_val    : INTEGER range 0 to 41600;
+  signal i          : INTEGER range 0 to 4;
+  signal pulso      : STD_LOGIC:='0';
+  signal contador   : integer range 0 to 49999999 := 0;
+  signal dato_bin   : STD_LOGIC_VECTOR(3 downto 0);
+  signal hex_val    : STD_LOGIC_VECTOR(7 downto 0):=(others=>'0');
+
+begin 
+  TX_divisor  : process(Clk)
+  begin 
+    if rising_edge(Clk) then 
+      contador<=contador + 1;
+      if (contador < 140000) then 
+        pulso <= '1';
+      else 
+        pulso <= '0';
+      end if; 
+    end if;
+  end process TX_divisor;
+
+  TX_prepara : process(Clk, pulso)
+    type arreglo is array (0 to 1) of STD_LOGIC_VECTOR(7 downto 0);
+    variable asc_dato : arreglo := (X"30",X"0A");
+  begin
+    asc_dato(0) := hex_val;
+    if (pulso='1') then 
+      if rising_edge(Clk) then 
+        if (conta=valor) then
+          conta <= 0;
+          --INICIO <= '1';
+          dato_env <= asc_dato(i);
+          if (i=1) then
+            i <=0;
+          else
+            i <= i + 1;
+          end if; 
+        else
+          conta <= conta + 1;
+          --INICIO <= '0';
+        end if; 
+      end if; 
+    end if; 
+  end process TX_prepara;
+
+  TX_envia : process(Clk,INICIO,dato)
+  begin 
+    if(Clk'EVENT and Clk = '1') then
+      if (Flag = '0' and INICIO = '0') then 
+        Flag <= '1';
+        BUFF(0) <= '0'; --Bit de inicio
+        BUFF(9) <= '1'; --Bit de parada
+        BUFF(8 DOWNTO 1) <= dato_env; --Dato a enviar
+      end if;
+      if (Flag = '1') then 
+        if (PRE < PRE_val) then
+          PRE <= PRE + 1; --contar pulsos hasta las bauds deseados para enviar un pulso 
+        else
+          PRE <= 0;
+        end if; 
+        if(PRE = PRE_val/2) then --Mitad de los pulsos
+          TX_WIRE <= BUFF(INDICE); --Enviar el paquete
+          if (INDICE < 9) then 
+            INDICE <= INDICE + 1;
+          else 
+            Flag <= '0'; --Cambia bandera a 0 porque ya se envió paquete
+            INDICE <= 0;
+          end if; 
+        end if; 
+      end if; 
+    end if; 
+  end process TX_envia;
+
+  bandera <= pulso;
+  hex_val <= dato;
+
+
+  with(baud) select 
+    PRE_val <=  41600 when "000",
+                20800 when "001",
+                10400 when "010",
+                5200  when "011",
+                2600  when "100",
+                1300  when "101",
+                866   when "110",
+                432   when others;
+                
+end architecture behavioral;

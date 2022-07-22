@@ -1,0 +1,488 @@
+Analysis & Synthesis report for leds
+Wed Jun 30 15:18:05 2021
+Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: divisor:D1
+ 14. Parameter Settings for User Entity Instance: divisor:D2
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Jun 30 15:18:05 2021       ;
+; Quartus Prime Version              ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
+; Revision Name                      ; leds                                        ;
+; Top-level Entity Name              ; leds                                        ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 145                                         ;
+;     Total combinational functions  ; 145                                         ;
+;     Dedicated logic registers      ; 88                                          ;
+; Total registers                    ; 88                                          ;
+; Total pins                         ; 9                                           ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; leds               ; leds               ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                               ;
++----------------------------------+-----------------+-----------------+-------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path        ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------+---------+
+; divisor.vhd                      ; yes             ; User VHDL File  ; C:/disenovlsi/practica5/divisor.vhd ;         ;
+; leds.vhd                         ; yes             ; User VHDL File  ; C:/disenovlsi/practica5/leds.vhd    ;         ;
+; pwm.vhd                          ; yes             ; User VHDL File  ; C:/disenovlsi/practica5/pwm.vhd     ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------+---------+
+
+
++-------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary           ;
++---------------------------------------------+---------+
+; Resource                                    ; Usage   ;
++---------------------------------------------+---------+
+; Estimated Total logic elements              ; 145     ;
+;                                             ;         ;
+; Total combinational functions               ; 145     ;
+; Logic element usage by number of LUT inputs ;         ;
+;     -- 4 input functions                    ; 58      ;
+;     -- 3 input functions                    ; 35      ;
+;     -- <=2 input functions                  ; 52      ;
+;                                             ;         ;
+; Logic elements by mode                      ;         ;
+;     -- normal mode                          ; 101     ;
+;     -- arithmetic mode                      ; 44      ;
+;                                             ;         ;
+; Total registers                             ; 88      ;
+;     -- Dedicated logic registers            ; 88      ;
+;     -- I/O registers                        ; 0       ;
+;                                             ;         ;
+; I/O pins                                    ; 9       ;
+;                                             ;         ;
+; Embedded Multiplier 9-bit elements          ; 0       ;
+;                                             ;         ;
+; Maximum fan-out node                        ; sentido ;
+; Maximum fan-out                             ; 52      ;
+; Total fan-out                               ; 665     ;
+; Average fan-out                             ; 2.65    ;
++---------------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; |leds                      ; 145 (54)            ; 88 (47)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 9    ; 0            ; 0          ; |leds               ; leds        ; work         ;
+;    |PWM:P1|                ; 14 (14)             ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |leds|PWM:P1        ; PWM         ; work         ;
+;    |PWM:P2|                ; 13 (13)             ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |leds|PWM:P2        ; PWM         ; work         ;
+;    |PWM:P3|                ; 5 (5)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |leds|PWM:P3        ; PWM         ; work         ;
+;    |PWM:P4|                ; 5 (5)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |leds|PWM:P4        ; PWM         ; work         ;
+;    |PWM:P5|                ; 5 (5)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |leds|PWM:P5        ; PWM         ; work         ;
+;    |PWM:P6|                ; 5 (5)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |leds|PWM:P6        ; PWM         ; work         ;
+;    |PWM:P7|                ; 5 (5)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |leds|PWM:P7        ; PWM         ; work         ;
+;    |PWM:P8|                ; 5 (5)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |leds|PWM:P8        ; PWM         ; work         ;
+;    |divisor:D1|            ; 10 (10)             ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |leds|divisor:D1    ; divisor     ; work         ;
+;    |divisor:D2|            ; 24 (24)             ; 24 (24)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |leds|divisor:D2    ; divisor     ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; a14[1,2,4..7]                           ; Merged with a14[0]                     ;
+; a13[1,2,4,6,7]                          ; Merged with a13[0]                     ;
+; a12[1,2,4,7]                            ; Merged with a12[0]                     ;
+; a11[1,2]                                ; Merged with a11[0]                     ;
+; a11[7]                                  ; Merged with a11[4]                     ;
+; PWM:P2|Cuenta[7]                        ; Merged with PWM:P1|Cuenta[7]           ;
+; PWM:P3|Cuenta[7]                        ; Merged with PWM:P1|Cuenta[7]           ;
+; PWM:P4|Cuenta[7]                        ; Merged with PWM:P1|Cuenta[7]           ;
+; PWM:P5|Cuenta[7]                        ; Merged with PWM:P1|Cuenta[7]           ;
+; PWM:P6|Cuenta[7]                        ; Merged with PWM:P1|Cuenta[7]           ;
+; PWM:P7|Cuenta[7]                        ; Merged with PWM:P1|Cuenta[7]           ;
+; PWM:P8|Cuenta[7]                        ; Merged with PWM:P1|Cuenta[7]           ;
+; PWM:P2|Cuenta[6]                        ; Merged with PWM:P1|Cuenta[6]           ;
+; PWM:P3|Cuenta[6]                        ; Merged with PWM:P1|Cuenta[6]           ;
+; PWM:P4|Cuenta[6]                        ; Merged with PWM:P1|Cuenta[6]           ;
+; PWM:P5|Cuenta[6]                        ; Merged with PWM:P1|Cuenta[6]           ;
+; PWM:P6|Cuenta[6]                        ; Merged with PWM:P1|Cuenta[6]           ;
+; PWM:P7|Cuenta[6]                        ; Merged with PWM:P1|Cuenta[6]           ;
+; PWM:P8|Cuenta[6]                        ; Merged with PWM:P1|Cuenta[6]           ;
+; PWM:P2|Cuenta[5]                        ; Merged with PWM:P1|Cuenta[5]           ;
+; PWM:P3|Cuenta[5]                        ; Merged with PWM:P1|Cuenta[5]           ;
+; PWM:P4|Cuenta[5]                        ; Merged with PWM:P1|Cuenta[5]           ;
+; PWM:P5|Cuenta[5]                        ; Merged with PWM:P1|Cuenta[5]           ;
+; PWM:P6|Cuenta[5]                        ; Merged with PWM:P1|Cuenta[5]           ;
+; PWM:P7|Cuenta[5]                        ; Merged with PWM:P1|Cuenta[5]           ;
+; PWM:P8|Cuenta[5]                        ; Merged with PWM:P1|Cuenta[5]           ;
+; PWM:P2|Cuenta[4]                        ; Merged with PWM:P1|Cuenta[4]           ;
+; PWM:P3|Cuenta[4]                        ; Merged with PWM:P1|Cuenta[4]           ;
+; PWM:P4|Cuenta[4]                        ; Merged with PWM:P1|Cuenta[4]           ;
+; PWM:P5|Cuenta[4]                        ; Merged with PWM:P1|Cuenta[4]           ;
+; PWM:P6|Cuenta[4]                        ; Merged with PWM:P1|Cuenta[4]           ;
+; PWM:P7|Cuenta[4]                        ; Merged with PWM:P1|Cuenta[4]           ;
+; PWM:P8|Cuenta[4]                        ; Merged with PWM:P1|Cuenta[4]           ;
+; PWM:P2|Cuenta[3]                        ; Merged with PWM:P1|Cuenta[3]           ;
+; PWM:P3|Cuenta[3]                        ; Merged with PWM:P1|Cuenta[3]           ;
+; PWM:P4|Cuenta[3]                        ; Merged with PWM:P1|Cuenta[3]           ;
+; PWM:P5|Cuenta[3]                        ; Merged with PWM:P1|Cuenta[3]           ;
+; PWM:P6|Cuenta[3]                        ; Merged with PWM:P1|Cuenta[3]           ;
+; PWM:P7|Cuenta[3]                        ; Merged with PWM:P1|Cuenta[3]           ;
+; PWM:P8|Cuenta[3]                        ; Merged with PWM:P1|Cuenta[3]           ;
+; PWM:P2|Cuenta[2]                        ; Merged with PWM:P1|Cuenta[2]           ;
+; PWM:P3|Cuenta[2]                        ; Merged with PWM:P1|Cuenta[2]           ;
+; PWM:P4|Cuenta[2]                        ; Merged with PWM:P1|Cuenta[2]           ;
+; PWM:P5|Cuenta[2]                        ; Merged with PWM:P1|Cuenta[2]           ;
+; PWM:P6|Cuenta[2]                        ; Merged with PWM:P1|Cuenta[2]           ;
+; PWM:P7|Cuenta[2]                        ; Merged with PWM:P1|Cuenta[2]           ;
+; PWM:P8|Cuenta[2]                        ; Merged with PWM:P1|Cuenta[2]           ;
+; PWM:P2|Cuenta[1]                        ; Merged with PWM:P1|Cuenta[1]           ;
+; PWM:P3|Cuenta[1]                        ; Merged with PWM:P1|Cuenta[1]           ;
+; PWM:P4|Cuenta[1]                        ; Merged with PWM:P1|Cuenta[1]           ;
+; PWM:P5|Cuenta[1]                        ; Merged with PWM:P1|Cuenta[1]           ;
+; PWM:P6|Cuenta[1]                        ; Merged with PWM:P1|Cuenta[1]           ;
+; PWM:P7|Cuenta[1]                        ; Merged with PWM:P1|Cuenta[1]           ;
+; PWM:P8|Cuenta[1]                        ; Merged with PWM:P1|Cuenta[1]           ;
+; PWM:P2|Cuenta[0]                        ; Merged with PWM:P1|Cuenta[0]           ;
+; PWM:P3|Cuenta[0]                        ; Merged with PWM:P1|Cuenta[0]           ;
+; PWM:P4|Cuenta[0]                        ; Merged with PWM:P1|Cuenta[0]           ;
+; PWM:P5|Cuenta[0]                        ; Merged with PWM:P1|Cuenta[0]           ;
+; PWM:P6|Cuenta[0]                        ; Merged with PWM:P1|Cuenta[0]           ;
+; PWM:P7|Cuenta[0]                        ; Merged with PWM:P1|Cuenta[0]           ;
+; PWM:P8|Cuenta[0]                        ; Merged with PWM:P1|Cuenta[0]           ;
+; a1[7]                                   ; Merged with a1[4]                      ;
+; a1[1,2]                                 ; Merged with a1[0]                      ;
+; a2[7]                                   ; Merged with a2[4]                      ;
+; a2[1,2]                                 ; Merged with a2[0]                      ;
+; a3[7]                                   ; Merged with a3[4]                      ;
+; a3[1,2]                                 ; Merged with a3[0]                      ;
+; a4[7]                                   ; Merged with a4[4]                      ;
+; a4[1,2]                                 ; Merged with a4[0]                      ;
+; a5[7]                                   ; Merged with a5[4]                      ;
+; a5[1,2]                                 ; Merged with a5[0]                      ;
+; a6[7]                                   ; Merged with a6[4]                      ;
+; a6[1,2]                                 ; Merged with a6[0]                      ;
+; a7[7]                                   ; Merged with a7[4]                      ;
+; a7[1,2]                                 ; Merged with a7[0]                      ;
+; a8[7]                                   ; Merged with a8[4]                      ;
+; a8[1,2]                                 ; Merged with a8[0]                      ;
+; divisor:D1|cuenta[0]                    ; Merged with divisor:D2|cuenta[0]       ;
+; divisor:D1|cuenta[1]                    ; Merged with divisor:D2|cuenta[1]       ;
+; divisor:D1|cuenta[2]                    ; Merged with divisor:D2|cuenta[2]       ;
+; divisor:D1|cuenta[3]                    ; Merged with divisor:D2|cuenta[3]       ;
+; divisor:D1|cuenta[4]                    ; Merged with divisor:D2|cuenta[4]       ;
+; divisor:D1|cuenta[5]                    ; Merged with divisor:D2|cuenta[5]       ;
+; divisor:D1|cuenta[6]                    ; Merged with divisor:D2|cuenta[6]       ;
+; divisor:D1|cuenta[7]                    ; Merged with divisor:D2|cuenta[7]       ;
+; divisor:D1|cuenta[8]                    ; Merged with divisor:D2|cuenta[8]       ;
+; divisor:D1|cuenta[9]                    ; Merged with divisor:D2|cuenta[9]       ;
+; a14[0]                                  ; Stuck at GND due to stuck port data_in ;
+; a13[0]                                  ; Stuck at GND due to stuck port data_in ;
+; a12[0]                                  ; Stuck at GND due to stuck port data_in ;
+; a11[0]                                  ; Stuck at GND due to stuck port data_in ;
+; a13[5]                                  ; Merged with a11[4]                     ;
+; a12[6]                                  ; Merged with a11[4]                     ;
+; a14[3]                                  ; Merged with a11[4]                     ;
+; a12[5]                                  ; Merged with a11[6]                     ;
+; divisor:D1|cuenta[11..27]               ; Lost fanout                            ;
+; divisor:D2|cuenta[24..27]               ; Lost fanout                            ;
+; Total Number of Removed Registers = 137 ;                                        ;
++-----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                        ;
++---------------+---------------------------+----------------------------------------+
+; Register name ; Reason for Removal        ; Registers Removed due to This Register ;
++---------------+---------------------------+----------------------------------------+
+; a14[0]        ; Stuck at GND              ; a13[0], a12[0], a11[0]                 ;
+;               ; due to stuck port data_in ;                                        ;
++---------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 88    ;
+; Number of registers using Synchronous Clear  ; 1     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 36    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; a1[3]                                  ; 3       ;
+; a2[5]                                  ; 3       ;
+; a3[6]                                  ; 3       ;
+; a3[5]                                  ; 3       ;
+; a4[4]                                  ; 4       ;
+; a4[6]                                  ; 3       ;
+; a4[5]                                  ; 3       ;
+; a4[3]                                  ; 3       ;
+; Total number of inverted registers = 8 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |leds|a11[6]               ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |leds|a7[3]                ;
+; 4:1                ; 22 bits   ; 44 LEs        ; 44 LEs               ; 0 LEs                  ; Yes        ; |leds|a3[3]                ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |leds|a4[5]                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor:D1 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; n              ; 10    ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisor:D2 ;
++----------------+-------+--------------------------------+
+; Parameter Name ; Value ; Type                           ;
++----------------+-------+--------------------------------+
+; n              ; 23    ; Signed Integer                 ;
++----------------+-------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 9                           ;
+; cycloneiii_ff         ; 88                          ;
+;     ENA               ; 36                          ;
+;     SCLR              ; 1                           ;
+;     plain             ; 51                          ;
+; cycloneiii_lcell_comb ; 145                         ;
+;     arith             ; 44                          ;
+;         2 data inputs ; 41                          ;
+;         3 data inputs ; 3                           ;
+;     normal            ; 101                         ;
+;         1 data inputs ; 6                           ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 32                          ;
+;         4 data inputs ; 58                          ;
+;                       ;                             ;
+; Max LUT depth         ; 7.20                        ;
+; Average LUT depth     ; 3.79                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
+    Info: Processing started: Wed Jun 30 15:17:40 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off leds -c leds
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file divisor.vhd
+    Info (12022): Found design unit 1: divisor-behavioral File: C:/disenovlsi/practica5/divisor.vhd Line: 14
+    Info (12023): Found entity 1: divisor File: C:/disenovlsi/practica5/divisor.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file leds.vhd
+    Info (12022): Found design unit 1: leds-Behavioral File: C:/disenovlsi/practica5/leds.vhd Line: 20
+    Info (12023): Found entity 1: leds File: C:/disenovlsi/practica5/leds.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file pwm.vhd
+    Info (12022): Found design unit 1: PWM-Behavioral File: C:/disenovlsi/practica5/pwm.vhd Line: 14
+    Info (12023): Found entity 1: PWM File: C:/disenovlsi/practica5/pwm.vhd Line: 6
+Info (12127): Elaborating entity "leds" for the top level hierarchy
+Warning (10540): VHDL Signal Declaration warning at leds.vhd(49): used explicit default value for signal "a15" because signal was never assigned a value File: C:/disenovlsi/practica5/leds.vhd Line: 49
+Info (12128): Elaborating entity "divisor" for hierarchy "divisor:D1" File: C:/disenovlsi/practica5/leds.vhd Line: 52
+Info (12128): Elaborating entity "divisor" for hierarchy "divisor:D2" File: C:/disenovlsi/practica5/leds.vhd Line: 53
+Info (12128): Elaborating entity "PWM" for hierarchy "PWM:P1" File: C:/disenovlsi/practica5/leds.vhd Line: 54
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 21 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 163 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 154 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4788 megabytes
+    Info: Processing ended: Wed Jun 30 15:18:05 2021
+    Info: Elapsed time: 00:00:25
+    Info: Total CPU time (on all processors): 00:00:45
+
+

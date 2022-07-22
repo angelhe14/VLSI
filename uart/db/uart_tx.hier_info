@@ -1,0 +1,47 @@
+|uart_tx
+clk => clk_counter[0].CLK
+clk => clk_counter[1].CLK
+clk => clk_counter[2].CLK
+clk => clk_counter[3].CLK
+clk => clk_counter[4].CLK
+clk => clk_counter[5].CLK
+clk => clk_counter[6].CLK
+clk => clk_counter[7].CLK
+clk => clk_counter[8].CLK
+clk => clk_counter[9].CLK
+clk => clk_counter[10].CLK
+clk => clk_counter[11].CLK
+clk => clk_div.CLK
+reset => wait_50[0].ACLR
+reset => wait_50[1].ACLR
+reset => wait_50[2].ACLR
+reset => wait_50[3].ACLR
+reset => wait_50[4].ACLR
+reset => wait_50[5].ACLR
+reset => char_pointer[0].ACLR
+reset => char_pointer[1].ACLR
+reset => char_pointer[2].ACLR
+reset => char_pointer[3].ACLR
+reset => led_o~reg0.ACLR
+reset => tx_bit[0].ACLR
+reset => tx_bit[1].ACLR
+reset => tx_bit[2].ACLR
+reset => tx~reg0.PRESET
+reset => clk_div.ACLR
+reset => tx_state~7.DATAIN
+reset => clk_counter[11].ENA
+reset => clk_counter[10].ENA
+reset => clk_counter[9].ENA
+reset => clk_counter[8].ENA
+reset => clk_counter[7].ENA
+reset => clk_counter[6].ENA
+reset => clk_counter[5].ENA
+reset => clk_counter[4].ENA
+reset => clk_counter[3].ENA
+reset => clk_counter[2].ENA
+reset => clk_counter[1].ENA
+reset => clk_counter[0].ENA
+tx << tx~reg0.DB_MAX_OUTPUT_PORT_TYPE
+led_o << led_o~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,215 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity practicacomp1 is 
+port(
+	reloj: in std_logic;
+	an: out std_logic_vector(3 downto 0);
+	l1 : out std_logic_vector(6 downto 0);
+	l2 : out std_logic_vector(6 downto 0);
+	l3 : out std_logic_vector(6 downto 0);
+	l4 : out std_logic_vector(6 downto 0)
+);
+end;
+
+architecture behavioral of practicacomp1 is
+	signal segundo: std_logic;
+	signal rapido: std_logic;
+	signal n: std_logic;
+	signal qs: std_logic_vector(3 downto 0);
+	signal qum: std_logic_vector(3 downto 0);
+	signal qdm: std_logic_vector(3 downto 0);
+	signal qum1: std_logic_vector(3 downto 0) ;
+	signal qdm1: std_logic_vector(3 downto 0) ;
+	signal e: std_logic;
+	signal qr: std_logic_vector(1 downto 0);
+	signal quh: std_logic_vector(3 downto 0);
+	signal qdh: std_logic_vector(3 downto 0);
+	signal quh1: std_logic_vector(3 downto 0) ;
+	signal qdh1: std_logic_vector(3 downto 0) ;
+	signal z: std_logic;
+	signal u: std_logic;
+	signal d: std_logic;
+	signal reset: std_logic;
+	signal bandera: std_logic := '0';
+	signal bandera2: std_logic := '0';
+	signal i: integer := 0;
+	signal alarma: std_logic := '1';
+	signal habilitador: std_logic := '0';
+	
+begin
+	divisor: process (reloj)
+		variable cuenta: std_logic_vector(27 downto 0) := X"0000000";
+	begin
+		if rising_edge (reloj) then 
+			if cuenta = X"48009E0" then 
+				cuenta := X"0000000";
+			else
+				cuenta := cuenta + 1;
+			end if;
+		end if;
+		segundo <= cuenta(22);
+		rapido <= cuenta(10);
+	end process;
+	
+	unidades: process(segundo)
+		variable cuenta: std_logic_vector(3 downto 0) := "0000";
+	begin
+		if rising_edge (segundo) then
+			if cuenta = "1001" then 
+				cuenta := "0000";
+				i <= i+1;
+				n <= '1';
+				habilitador <= not(habilitador);
+			else
+				cuenta := cuenta + 1;
+				n <= '0';
+				habilitador <= not(habilitador);
+			end if;
+		end if;
+		if bandera = '1' and i >= 9 then
+			qum <= "0000";
+			alarma <= '0';
+		else
+			qum <= cuenta;
+		end if;
+	end process;
+	
+	decenas: process(n)
+		variable cuenta: std_logic_vector(3 downto 0) := "0000";
+	begin
+		if rising_edge (n) then
+			if cuenta = "0101" then 
+				cuenta := "0000";
+				bandera <= '1';
+				e <= '1';
+			else
+				cuenta := cuenta + 1;
+				e <= '0';
+			end if;
+		end if;
+		if i >= 9 then 
+			qdm <= "0011";
+		else
+			qdm <= cuenta;
+		end if;
+	end process;
+	
+	horau: process(e, reset)
+		variable cuenta: std_logic_vector(3 downto 0) := "0000";
+	begin
+		if rising_edge(e) then
+			if cuenta = "1001" then
+				cuenta := "0000";
+				z <= '1';
+			else
+				cuenta := cuenta + 1;
+				z <= '0';
+			end if;
+		end if;
+		if bandera = '1' then 
+			quh <= "0001";
+		else
+			quh <= cuenta;
+		end if;
+		u <= cuenta(2);
+	end process;
+	
+	horad: process(z, reset)
+		variable cuenta: std_logic_vector(3 downto 0) := "0000";
+	begin
+		if rising_edge(z) then
+			if cuenta = "0010" then
+				cuenta := "0000";
+			else
+				cuenta := cuenta + 1;
+			end if;
+		end if;
+		if reset = '1' then
+			cuenta := "0000";
+		end if;
+		qdh <= "0000";
+		d <= cuenta(1);
+	end process;
+	
+	
+	
+	alrma: process(habilitador, alarma)
+	begin
+		if bandera = '1' and i >= 9 then
+			if habilitador = '1' then
+				qum1 <= qum;
+				qdm1 <= qdm;
+				quh1 <= quh;
+				qdh1 <= qdh;
+			else
+				qum1 <= "1111";
+				qdm1 <= "1111";
+				quh1 <= "1111";
+				qdh1 <= "1111";
+			end if;
+		else
+			qum1 <= qum;
+			qdm1 <= qdm;
+			quh1 <= quh;
+			qdh1 <= qdh;
+		end if;
+			case qum1 is
+				when "0000" => l1 <= "1000000";
+				when "0001" => l1 <= "1111001";
+				when "0010" => l1 <= "0100100";
+				when "0011" => l1 <= "0110000";
+				when "0100" => l1 <= "0011001";
+				when "0101" => l1 <= "0010010";
+				when "0110" => l1 <= "0000010";
+				when "0111" => l1 <= "1111000";
+				when "1000" => l1 <= "0000000";
+				when "1001" => l1 <= "0010000";
+				when others => l1 <= "1111111";
+			end case;
+			
+			case qdm1 is
+				when "0000" => l2 <= "1000000";
+				when "0001" => l2 <= "1111001";
+				when "0010" => l2 <= "0100100";
+				when "0011" => l2 <= "0110000";
+				when "0100" => l2 <= "0011001";
+				when "0101" => l2 <= "0010010";
+				when "0110" => l2 <= "0000010";
+				when "0111" => l2 <= "1111000";
+				when "1000" => l2 <= "0000000";
+				when "1001" => l2 <= "0010000";
+				when others => l2 <= "1111111";
+			end case;
+			
+			case quh1 is
+				when "0000" => l3 <= "1000000";
+				when "0001" => l3 <= "1111001";
+				when "0010" => l3 <= "0100100";
+				when "0011" => l3 <= "0110000";
+				when "0100" => l3 <= "0011001";
+				when "0101" => l3 <= "0010010";
+				when "0110" => l3 <= "0000010";
+				when "0111" => l3 <= "1111000";
+				when "1000" => l3 <= "0000000";
+				when "1001" => l3 <= "0010000";
+				when others => l3 <= "1111111";
+			end case;
+			
+			case qdh1 is
+				when "0000" => l4 <= "1000000";
+				when "0001" => l4 <= "1111001";
+				when "0010" => l4 <= "0100100";
+				when "0011" => l4 <= "0110000";
+				when "0100" => l4 <= "0011001";
+				when "0101" => l4 <= "0010010";
+				when "0110" => l4 <= "0000010";
+				when "0111" => l4 <= "1111000";
+				when "1000" => l4 <= "0000000";
+				when "1001" => l4 <= "0010000";
+				when others => l4 <= "1111111";
+			end case;
+	end process;
+end behavioral;

@@ -1,0 +1,47 @@
+|actcomp
+sreloj => led~reg0.CLK
+sreloj => \SALIDA:cuenta[0].CLK
+sreloj => \SALIDA:cuenta[1].CLK
+sreloj => \SALIDA:cuenta[2].CLK
+sreloj => \SALIDA:cuenta[3].CLK
+sreloj => \SALIDA:cuenta[4].CLK
+sreloj => \SALIDA:cuenta[5].CLK
+sreloj => \SALIDA:cuenta[6].CLK
+sreloj => \SALIDA:cuenta[7].CLK
+sreloj => \SALIDA:cuenta[8].CLK
+sreloj => \SALIDA:cuenta[9].CLK
+sreloj => \SALIDA:cuenta[10].CLK
+sreloj => \SALIDA:cuenta[11].CLK
+sreloj => \SALIDA:cuenta[12].CLK
+sreloj => \SALIDA:cuenta[13].CLK
+sreloj => \SALIDA:cuenta[14].CLK
+sreloj => \SALIDA:cuenta[15].CLK
+sreloj => \SALIDA:cuenta[16].CLK
+sreloj => \SALIDA:cuenta[17].CLK
+sreloj => \SALIDA:cuenta[18].CLK
+sreloj => \SALIDA:cuenta[19].CLK
+sreloj => \SALIDA:cuenta[20].CLK
+sreloj => \SALIDA:cuenta[21].CLK
+sreloj => \SALIDA:cuenta[22].CLK
+sreloj => \SALIDA:cuenta[23].CLK
+sreloj => \SALIDA:cuenta[24].CLK
+sreloj => \SALIDA:cuenta[25].CLK
+sreloj => \SALIDA:cuenta[26].CLK
+sreloj => \SALIDA:cuenta[27].CLK
+sreloj => \SALIDA:cuenta[28].CLK
+sreloj => \SALIDA:cuenta[29].CLK
+sreloj => \SALIDA:cuenta[30].CLK
+sreloj => \SALIDA:cuenta[31].CLK
+Hz[0] => Div0.IN63
+Hz[1] => Div0.IN62
+Hz[2] => Div0.IN61
+Hz[3] => Div0.IN60
+Hz[4] => Div0.IN59
+ciclo[0] => Mult0.IN63
+ciclo[1] => Mult0.IN62
+ciclo[2] => Mult0.IN61
+ciclo[3] => Mult0.IN60
+ciclo[4] => Mult0.IN59
+led << led~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

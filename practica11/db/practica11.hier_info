@@ -1,0 +1,46 @@
+|practica11
+clk50MHz => reloj_pixel.CLK
+red[0] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+red[1] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+red[2] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+red[3] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+green[0] <= Mux7.DB_MAX_OUTPUT_PORT_TYPE
+green[1] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+green[2] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+green[3] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+blue[0] <= Mux11.DB_MAX_OUTPUT_PORT_TYPE
+blue[1] <= Mux10.DB_MAX_OUTPUT_PORT_TYPE
+blue[2] <= Mux9.DB_MAX_OUTPUT_PORT_TYPE
+blue[3] <= Mux8.DB_MAX_OUTPUT_PORT_TYPE
+h_sync <= h_sync~reg0.DB_MAX_OUTPUT_PORT_TYPE
+v_sync <= v_sync~reg0.DB_MAX_OUTPUT_PORT_TYPE
+dipsw[0] => Mux12.IN19
+dipsw[0] => Mux13.IN19
+dipsw[0] => Mux14.IN19
+dipsw[0] => Mux15.IN19
+dipsw[0] => Mux16.IN19
+dipsw[0] => Mux17.IN19
+dipsw[0] => Mux18.IN19
+dipsw[1] => Mux12.IN18
+dipsw[1] => Mux13.IN18
+dipsw[1] => Mux14.IN18
+dipsw[1] => Mux15.IN18
+dipsw[1] => Mux16.IN18
+dipsw[1] => Mux17.IN18
+dipsw[1] => Mux18.IN18
+dipsw[2] => Mux12.IN17
+dipsw[2] => Mux13.IN17
+dipsw[2] => Mux14.IN17
+dipsw[2] => Mux15.IN17
+dipsw[2] => Mux16.IN17
+dipsw[2] => Mux17.IN17
+dipsw[2] => Mux18.IN17
+dipsw[3] => Mux12.IN16
+dipsw[3] => Mux13.IN16
+dipsw[3] => Mux14.IN16
+dipsw[3] => Mux15.IN16
+dipsw[3] => Mux16.IN16
+dipsw[3] => Mux17.IN16
+dipsw[3] => Mux18.IN16
+
+

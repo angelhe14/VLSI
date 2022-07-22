@@ -1,0 +1,8 @@
+
+State Machine - |comp2|pres_S
+Name pres_S.sm4 pres_S.sm3 pres_S.sm2 pres_S.sm1 pres_S.sm0 
+pres_S.sm0 0 0 0 0 0 
+pres_S.sm1 0 0 0 1 1 
+pres_S.sm2 0 0 1 0 1 
+pres_S.sm3 0 1 0 0 1 
+pres_S.sm4 1 0 0 0 1 

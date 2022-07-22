@@ -1,0 +1,7 @@
+
+State Machine - |uart_tx|tx_state
+Name tx_state.STOP tx_state.DATA tx_state.START tx_state.IDLE 
+tx_state.IDLE 0 0 0 0 
+tx_state.START 0 0 1 1 
+tx_state.DATA 0 1 0 1 
+tx_state.STOP 1 0 0 1 

@@ -1,0 +1,41 @@
+|comp1
+aux => pres_S~1.DATAIN
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+UD => next_s.DATAB
+FH[0] => Equal0.IN3
+FH[0] => Equal1.IN3
+FH[0] => Equal2.IN3
+FH[0] => Equal3.IN3
+FH[1] => Equal0.IN2
+FH[1] => Equal1.IN2
+FH[1] => Equal2.IN2
+FH[1] => Equal3.IN2
+M[0] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
+M[1] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+M[2] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+M[3] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+
+

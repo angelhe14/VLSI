@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'reloj'
+Slack : -4.017
+TNS   : -65.277
+
+Type  : Slow 1200mV 85C Model Setup '\divisor:CUENTA[22]'
+Slack : -0.667
+TNS   : -5.272
+
+Type  : Slow 1200mV 85C Model Hold '\divisor:CUENTA[22]'
+Slack : 0.348
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'reloj'
+Slack : 0.638
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'reloj'
+Slack : -3.000
+TNS   : -42.284
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width '\divisor:CUENTA[22]'
+Slack : -1.403
+TNS   : -54.717
+
+Type  : Slow 1200mV 0C Model Setup 'reloj'
+Slack : -3.650
+TNS   : -57.019
+
+Type  : Slow 1200mV 0C Model Setup '\divisor:CUENTA[22]'
+Slack : -0.524
+TNS   : -3.708
+
+Type  : Slow 1200mV 0C Model Hold '\divisor:CUENTA[22]'
+Slack : 0.313
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'reloj'
+Slack : 0.591
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'reloj'
+Slack : -3.000
+TNS   : -42.284
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width '\divisor:CUENTA[22]'
+Slack : -1.403
+TNS   : -54.717
+
+Type  : Fast 1200mV 0C Model Setup 'reloj'
+Slack : -1.262
+TNS   : -14.257
+
+Type  : Fast 1200mV 0C Model Setup '\divisor:CUENTA[22]'
+Slack : 0.297
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold '\divisor:CUENTA[22]'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'reloj'
+Slack : 0.246
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'reloj'
+Slack : -3.000
+TNS   : -31.840
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width '\divisor:CUENTA[22]'
+Slack : -1.000
+TNS   : -39.000
+
+------------------------------------------------------------

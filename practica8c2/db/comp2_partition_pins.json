@@ -1,0 +1,41 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "bandera",
+					"strict" : false
+				},
+				{
+					"name" : "TX_WIRE",
+					"strict" : false
+				},
+				{
+					"name" : "Clk",
+					"strict" : false
+				},
+				{
+					"name" : "INICIO",
+					"strict" : false
+				},
+				{
+					"name" : "SW4",
+					"strict" : false
+				},
+				{
+					"name" : "SW3",
+					"strict" : false
+				},
+				{
+					"name" : "SW2",
+					"strict" : false
+				},
+				{
+					"name" : "SW1",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

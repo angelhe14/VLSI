@@ -1,0 +1,57 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "led",
+					"strict" : false
+				},
+				{
+					"name" : "Hz[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Hz[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Hz[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Hz[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Hz[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sreloj",
+					"strict" : false
+				},
+				{
+					"name" : "ciclo[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ciclo[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ciclo[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ciclo[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ciclo[4]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

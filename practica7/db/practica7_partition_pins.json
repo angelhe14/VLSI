@@ -1,0 +1,57 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "sensor_disp",
+					"strict" : false
+				},
+				{
+					"name" : "anodos[2]",
+					"strict" : false
+				},
+				{
+					"name" : "anodos[3]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentos[1]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentos[2]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentos[3]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentos[4]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentos[5]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentos[6]",
+					"strict" : false
+				},
+				{
+					"name" : "segmentos[7]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "sensor_eco",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
